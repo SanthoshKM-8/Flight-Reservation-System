@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookings</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script
+      src="https://kit.fontawesome.com/1d273bf567.js"
+      crossorigin="anonymous"
+    ></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Flights</a>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/home">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/mybooking">My Bookings</a>
+                </li>
+            </ul>
+            <span style="padding-right: 10px;"><%= Name %></span>
+            <a href="/login"><span class="navbar-text">Logout</span></a>
+        </div>
+    </nav>
+    <% if(bookings.length == 0) { %>
+        <h3 style="width: 100%; text-align: center; margin-top: 5%;"><%= content %></h3>
+    <% } else { 
+        bookings.forEach(function(booking) { %>
+            <div class="container bg-light" id="mybooking" style="margin-top: 10px;">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h5>Flight Details</h5>
+                        <h5><%= booking.Flightname %></h5>
+                        <p><b><%= booking.Source %></b><br><%= booking.DepatureDate.toDateString(); %> <%= booking.DepatureTime %></p>
+                        <p><i class="fa fa-arrow-down" aria-hidden="true"></i></p>
+                        <p><b><%= booking.Destination %></b><br><%= booking.ArrivalDate.toDateString(); %> <%= booking.ArrivalTime %></p>
+                    </div>
+                    <div class="col-sm-6">
+                        <h5>Passenger Details</h5>
+                        <p>Passenger ID : <%= booking.Passengerid %></p>
+                        <p>Name : <%= booking.Name %></p>
+                        <p>Gender : <%= booking.Gender %></p>
+                        <p>Age : <%= booking.Age %></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <h5 class="col-sm-3">Booked At</h5>
+                    <p class="col-sm-4">Date : <%= booking.BookDate.toDateString(); %></p>
+                    <p class="col-sm-3">Time : <%= booking.BookTime %></p>
+                </div>
+            </div>
+    <%  }); 
+    } %>
+</body>
+</html>

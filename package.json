@@ -1,0 +1,20 @@
+{
+  "name": "flight-ticket-booking",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Santhosh",
+  "license": "ISC",
+  "dependencies": {
+    "alert": "^5.1.4",
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "md5": "^2.3.0",
+    "mysql2": "^3.4.5",
+    "nodemon": "^2.0.22"
+  }
+}

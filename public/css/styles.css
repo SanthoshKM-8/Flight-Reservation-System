@@ -1,0 +1,36 @@
+body {
+    background-color: #E8ECEF;
+}
+
+.formcard {
+    margin-left: 30%;
+}
+
+.addflightform {
+    margin-left: 25%;
+}
+
+#bookingtable {
+    margin:2% 10%;
+    width: 80%;
+}
+
+#bookingtable, tr, th, td {
+    border: 1px solid black;
+}
+
+#bookingtable th, td {
+    text-align: center;
+    padding: 5px;
+}
+
+.searchform {
+    margin-top: 10px;
+    margin-left: 8%;
+}
+
+#mybooking {
+    padding: 2%;
+    border-radius: 10px;
+    width: 50%;
+}

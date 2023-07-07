@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script
+      src="https://kit.fontawesome.com/1d273bf567.js"
+      crossorigin="anonymous"
+    ></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Flights</a>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/admin">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/addflight">Add Flights</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/viewbooking">View Bookings</a>
+                </li>
+            </ul>
+            <a href="/login"><span class="navbar-text">Logout</span></a>
+        </div>
+    </nav>
+    <div class="row" style="margin: 0%;padding: 5px; width: 100%;">
+
+        <% if(flights.length == 0) { %>
+            <h3 style="text-align: center; width: 100%;">No Flights Available...</h3>
+        <% } else { 
+            flights.forEach(function(flight) { %>
+                <div class="col-sm-3">
+                    <div class="card bg-light text-center">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= flight.Flightname %></h5>
+                            <p class="card-text"><b><%= flight.Source %></b><br><%= flight.DepatureDate.toDateString(); %> <%= flight.DepatureTime %></p>
+                            <p class="card-text"><i class="fa fa-arrow-down" aria-hidden="true"></i></p>
+                            <p class="card-text"><b><%= flight.Destination %></b><br><%= flight.ArrivalDate.toDateString(); %> <%= flight.ArrivalTime %></p>
+                            <p class="card-text">Available Seats - <%= flight.SeatsAvailable %></p>
+                            <a href="/remove/<%= flight.Flightid %>" class="btn btn-primary">Remove</a>
+                        </div>
+                    </div>
+                </div>
+            <% });
+        } %>
+
+    </div>
+</body>
+</html>

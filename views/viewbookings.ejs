@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Bookings</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Flights</a>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/addflight">Add Flights</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/viewbooking">View Bookings</a>
+                </li>
+            </ul>
+            <a href="/login"><span class="navbar-text">Logout</span></a>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <div class="addflightform col-sm-6">    
+            <div class="card bg-light">
+                <div class="card-body">
+                    <form action="/viewbooking" method="POST">
+                    <div class="form-group row">
+                        <label for="flightid" class="col-sm-4 col-form-label">Flight ID</label>
+                        <div class="col-sm-8">
+                            <input type="text" name="flightid" id="flightid" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="fdt" class="col-sm-4 col-form-label">From</label>
+                        <div class="col-sm-8">
+                            <input type="datetime-local" name="fdt" id="fdt" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-dark">View</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% if(bookings.length == 0) { %>
+        <h3 style="text-align: center; width: 100%; margin-top: 2%;"><%= content %></h3>
+    <% } else { %>
+        <table id="bookingtable" class="bg-light">
+            <tr>
+                <th>Passenger ID</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Age</th>
+                <th colspan="2">Booked At</th>
+                <th>Booked By</th>
+            </tr>
+            <% bookings.forEach(function(booking) { %>
+                <tr>
+                    <td><%= booking.Passengerid %></td>
+                    <td><%= booking.Name %></td>
+                    <td><%= booking.Gender %></td>
+                    <td><%= booking.Age %></td>
+                    <td><%= booking.BookDate.toLocaleDateString(); %></td>
+                    <td><%= booking.BookTime %></td>
+                    <td><%= booking.BookBy %></td>
+                </tr>
+            <% }); %>
+        </table>
+    <% } %>
+</body>
+</html>
