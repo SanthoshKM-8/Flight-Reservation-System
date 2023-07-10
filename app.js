@@ -31,7 +31,7 @@ app.post("/login", function(req, res) {
     email = req.body.email;
     const password = md5(req.body.password);
     pool.query("select * from users where email = ? and password = ?;", [email, password], function(error, results, fields) {
-        if(error) throw error;
+        if(error) console.log(error);
         console.log(results);
         if(results.length == 0) 
             alert("Check your mail and password");
