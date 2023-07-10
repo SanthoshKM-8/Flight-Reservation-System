@@ -12,11 +12,10 @@ app.use(express.static("public"));
 
 let email, name;
 const pool = mysql.createPool({
-  host: 'localhost',
+  host: '127.0.0.1',
   user: 'root',
   password: 'SanthoshDB@2',
   database: 'ftb',
-  socketPath: '/var/run/mysqld/mysqld.sock',
   connectionLimit: 10
 });
 
