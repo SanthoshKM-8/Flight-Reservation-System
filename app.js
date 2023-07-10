@@ -17,7 +17,8 @@ const pool = mysql.createPool({
   user: 'root',
   password: 'SanthoshDB@2',
   database: 'ftb',
-  connectionLimit: 10
+  connectionLimit: 10,
+  connectTimeout: 30000
 });
 
 app.get("/", function(req, res) {
