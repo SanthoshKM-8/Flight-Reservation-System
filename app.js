@@ -172,6 +172,6 @@ app.post("/book", function(req, res) {
     });
 });
 
-app.listen(Process.env.port, function() {
+app.listen(process.env.PORT || 3000, function() {
     console.log("Server started on port 3000.");
 });
