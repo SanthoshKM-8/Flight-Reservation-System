@@ -16,6 +16,7 @@ const pool = mysql.createPool({
   user: 'root',
   password: 'SanthoshDB@2',
   database: 'ftb',
+  socketPath: '/var/run/mysqld/mysqld.sock',
   connectionLimit: 10
 });
 
