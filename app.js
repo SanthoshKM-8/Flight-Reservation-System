@@ -15,7 +15,8 @@ const pool = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'SanthoshDB@2',
-  database: 'ftb'
+  database: 'ftb',
+  port: '/var/run/mysqld/mysqld.sock'
 });
 
 app.get("/", function(req, res) {
