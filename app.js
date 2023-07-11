@@ -11,14 +11,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 let email, name;
-const pool = mysql.createPool({
+const pool = mysql.createConnection({
   host: 'localhost',
   port: '3306',
   user: 'root',
   password: 'SanthoshDB@2',
-  database: 'ftb',
-  connectionLimit: 10,
-  connectTimeout: 30000
+  database: 'ftb'
 });
 
 app.get("/", function(req, res) {
