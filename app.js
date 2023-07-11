@@ -12,11 +12,10 @@ app.use(express.static("public"));
 
 let email, name;
 const pool = mysql.createConnection({
-  host: 'localhost',
+  host: '121.0.0.1',
   user: 'root',
   password: 'SanthoshDB@2',
-  database: 'ftb',
-  port: '/var/run/mysqld/mysqld.sock'
+  database: 'ftb'
 });
 
 app.get("/", function(req, res) {
