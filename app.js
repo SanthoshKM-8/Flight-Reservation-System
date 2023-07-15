@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 let email, name;
-const pool = mysql.createConnection({
+const pool = mysql.createPool({
   host: '192.168.0.106',
   port: '3306',
   user: 'root',
@@ -43,7 +43,6 @@ app.post("/login", function(req, res) {
                 res.redirect("/home");
             }
         }
-      pool.end();
     });
     console.log(req.body.email);
     // console.log(req.body.password);
