@@ -11,13 +11,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 let email, name;
-const pool = mysql.createPool({
-  host: '192.168.0.1',
+const pool = mysql.createConnection({
+  host: '192.168.0.106',
   port: '3306',
   user: 'root',
   password: 'SanthoshDB@2',
-  database: 'ftb',
-  connectionLimit: 15
+  database: 'ftb'
 });
 
 app.get("/", function(req, res) {
@@ -44,6 +43,7 @@ app.post("/login", function(req, res) {
                 res.redirect("/home");
             }
         }
+      pool.end();
     });
     console.log(req.body.email);
     // console.log(req.body.password);
