@@ -12,13 +12,12 @@ app.use(express.static("public"));
 
 let email, name;
 const pool = mysql.createPool({
-  host: '192.168.0.106',
+  host: '192.168.0.1',
   port: '3306',
   user: 'root',
   password: 'SanthoshDB@2',
   database: 'ftb',
-  connectionLimit: 10,
-  connectTimeout: 50000
+  connectionLimit: 15
 });
 
 app.get("/", function(req, res) {
