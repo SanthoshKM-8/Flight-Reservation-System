@@ -12,11 +12,11 @@ app.use(express.static("public"));
 
 let email, name;
 const pool = mysql.createPool({
-  host: '127.0.0.1',
+  host: 'bvio6kzhshvwp7mz0rcm-mysql.services.clever-cloud.com',
   port: '3306',
-  user: 'root',
-  password: 'SanthoshDB@2',
-  database: 'ftb'
+  user: 'u7k8a1jpfmfrqgtp',
+  password: 'qVll7bX6ccFrdiaWrrrA',
+  database: 'bvio6kzhshvwp7mz0rcm'
 });
 
 app.get("/", function(req, res) {
